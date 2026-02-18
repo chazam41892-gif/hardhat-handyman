@@ -1,0 +1,13 @@
+# Redirects and rewrites for Cloudflare Pages
+# Format: source destination [status]
+
+# Redirect common variations to the main page
+/home /
+/index /
+
+# API endpoint for contact form (if using Cloudflare Workers)
+# Uncomment and update with your worker URL when deployed
+# /api/contact https://contact-form.your-worker.workers.dev 200
+
+# 404 page (create a 404.html if you want a custom error page)
+# /* /404.html 404

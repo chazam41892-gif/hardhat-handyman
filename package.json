@@ -1,0 +1,25 @@
+{
+  "name": "hardhat-handyman",
+  "version": "1.0.0",
+  "description": "Professional handyman services website with AI-powered lead generation",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -o",
+    "dev": "npx http-server -p 8000 -o",
+    "deploy": "wrangler pages publish . --project-name=hardhat-handyman"
+  },
+  "keywords": [
+    "handyman",
+    "services",
+    "cloudflare",
+    "website",
+    "lead-generation"
+  ],
+  "author": "Rocky",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "wrangler": "^3.0.0"
+  }
+}
