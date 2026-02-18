@@ -2,21 +2,45 @@
 
 Professional handyman service website for Rocky's business with AI-powered lead generation capabilities.
 
-## 🚀 Quick Start - Deploy Your Site NOW!
+## 🚀 **START HERE** - Deploy Your Site NOW!
 
-**New here?** Start with our step-by-step guides:
+👉 **[READ START_HERE.md FIRST](START_HERE.md)** 👈
 
-1. **[📖 DEPLOYMENT GUIDE](DEPLOYMENT.md)** ← Start here! Complete guide for:
-   - GitHub Pages setup (FREE, 2 minutes)
-   - Cloudflare Pages setup (FREE, super fast)
-   - Connecting your custom domain
-   - AI integration with Cloudflare
+This will guide you through deploying your site in 5 minutes!
 
-2. **[🔧 BACKEND SETUP](BACKEND_SETUP.md)** ← Set up your contact form:
-   - Formspree (easiest, FREE)
-   - EmailJS (FREE)
-   - Netlify Forms (FREE)
-   - Cloudflare Workers (FREE)
+---
+
+## 📖 Complete Documentation
+
+All guides for your first client website:
+
+| Document | Purpose | Time |
+|----------|---------|------|
+| **[START_HERE.md](START_HERE.md)** 👈 | **Start here!** Complete beginner guide | 5 min |
+| [QUICKSTART.md](QUICKSTART.md) | Fast deployment (3 steps) | 2 min |
+| [DEPLOYMENT.md](DEPLOYMENT.md) | Full hosting guide + Cloudflare AI | 10 min |
+| [BACKEND_SETUP.md](BACKEND_SETUP.md) | Connect contact form | 5 min |
+| [images/README.md](images/README.md) | Image format rules | 3 min |
+
+---
+
+## 🎯 Quick Deploy (After Merging PR)
+
+1. **Enable GitHub Pages:**
+   - Go to: Settings → Pages
+   - Source: Deploy from branch `main`
+   - Done! Site live in 2 minutes
+
+2. **Your site will be at:**
+   ```
+   https://chazam41892-gif.github.io/hardhat-handyman/
+   ```
+
+3. **Set up form backend:** Follow [BACKEND_SETUP.md](BACKEND_SETUP.md)
+
+**See [START_HERE.md](START_HERE.md) for detailed step-by-step!**
+
+---
 
 ## Features
 
