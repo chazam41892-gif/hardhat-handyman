@@ -1,11 +1,12 @@
 # Deploying to GitHub and Cloudflare Pages
 
 ## ✅ Current Status
+
 Your project is ready for GitHub! All files are committed with proper image paths using `.jpg` format.
 
 ## 📋 Step 1: Create GitHub Repository
 
-1. Go to https://github.com/new
+1. Go to <https://github.com/new>
 2. Create a new repository (e.g., "hardhat-handyman-website")
 3. **DO NOT** initialize with README, .gitignore, or license (we already have these)
 4. Click "Create repository"
@@ -25,7 +26,7 @@ Replace `YOUR-USERNAME` and `YOUR-REPO-NAME` with your actual GitHub username an
 
 ## 🌐 Step 3: Deploy to Cloudflare Pages
 
-1. Go to https://dash.cloudflare.com
+1. Go to <https://dash.cloudflare.com>
 2. Navigate to **Workers & Pages** → **Create application** → **Pages** → **Connect to Git**
 3. Select your GitHub repository
 4. Configure build settings:
@@ -42,16 +43,17 @@ Replace `YOUR-USERNAME` and `YOUR-REPO-NAME` with your actual GitHub username an
 ✓ `.gitignore` excludes unnecessary files
 ✓ `_headers` file optimizes caching for Cloudflare
 ✓ All 76 images organized in proper folders:
-  - Tricky jobs (5 images)
-  - Dirty jobs (9 images)
-  - Roofing (11 images)
-  - Flooring (9 images)
-  - Craftsmanship (6 images)
-  - Construction (8 images)
-  - Before/After (5 images)
-  - Team (5 images)
-  - Meet Rocky (12 images)
-  - Logos (3 images)
+
+- Tricky jobs (5 images)
+- Dirty jobs (9 images)
+- Roofing (11 images)
+- Flooring (9 images)
+- Craftsmanship (6 images)
+- Construction (8 images)
+- Before/After (5 images)
+- Team (5 images)
+- Meet Rocky (12 images)
+- Logos (3 images)
 
 ## 📍 Important Notes
 
