@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hardhat Handyman | Reliable Local Handyman Services</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <!-- Google Ads Conversion Tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-CONVERSION_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-CONVERSION_ID');
+  </script>
+  
+  <!-- Yelp Conversion Tracking -->
+  <script type="text/javascript">
+    (function(d) {
+      var s = d.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://s3.amazonaws.com/yelp-conversion-tracking/yelp-conversion.js';
+      var x = d.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    })(document);
+  </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background: #f8f9fa;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 100%);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .logo-section img {
+      height: 80px;
+      width: auto;
+    }
+    
+    .logo-text h1 {
+      font-size: 2em;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .logo-text p {
+      font-size: 1.1em;
+      opacity: 0.95;
+    }
+    
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #dc2626 0%, #1e3a8a 100%);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    
+    .hero h2 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .hero p {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: white;
+      color: #dc2626;
+      padding: 15px 40px;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      background: #f8f9fa;
+    }
+    
+    /* Section Styles */
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    section h2 {
+      font-size: 2.5em;
+      color: #1e3a8a;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    section h3 {
+      font-size: 1.8em;
+      color: #dc2626;
+      margin: 40px 0 20px;
+      text-align: center;
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2em;
+      color: #6b7280;
+      margin-bottom: 40px;
+    }
+    
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 15px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+    
+    /* Meet Rocky Section */
+    .meet-rocky {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e5e7eb 100%);
+      border-radius: 15px;
+      padding: 40px;
+      margin: 40px 0;
+    }
+    
+    .rocky-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    .rocky-photo {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .rocky-photo img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .rocky-photo:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 40px auto;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 1em;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #1e3a8a;
+    }
+    
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .submit-button {
+      width: 100%;
+      background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 100%);
+      color: white;
+      padding: 15px;
+      font-size: 1.2em;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .submit-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    
+    /* Footer */
+    footer {
+      background: #1f2937;
+      color: white;
+      padding: 40px 20px 20px;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .powered-by {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .powered-by span {
+      font-size: 1.1em;
+      opacity: 0.8;
+    }
+    
+    .powered-by a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    
+    .powered-by a:hover {
+      transform: scale(1.05);
+    }
+    
+    .powered-by img {
+      height: 40px;
+      width: auto;
+    }
+    
+    /* Trust Badges Section */
+    .trust-section {
+      background: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .trust-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trust-badge-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5em;
+      color: white;
+      box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+      transition: transform 0.3s ease;
+    }
+    
+    .trust-badge:hover .trust-badge-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    .trust-badge-text {
+      font-weight: 600;
+      color: #1e3a8a;
+      font-size: 1.1em;
+    }
+    
+    .trust-badge-subtext {
+      color: #6b7280;
+      font-size: 0.9em;
+    }
+    
+    /* Stats Counter Section */
+    .stats-section {
+      background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 100%);
+      color: white;
+      padding: 60px 20px;
+      margin: 60px 0;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 3.5em;
+      font-weight: 800;
+      line-height: 1;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .stat-label {
+      font-size: 1.2em;
+      margin-top: 10px;
+      opacity: 0.95;
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      background: #f8f9fa;
+      padding: 60px 20px;
+      margin: 60px 0;
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 40px auto 0;
+    }
+    
+    .testimonial-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .testimonial-stars {
+      color: #fbbf24;
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      color: #4b5563;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: #1e3a8a;
+    }
+    
+    .testimonial-location {
+      color: #6b7280;
+      font-size: 0.9em;
+    }
+    
+    /* Guarantee Banner */
+    .guarantee-banner {
+      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      margin: 40px 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+    }
+    
+    .guarantee-banner h3 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .guarantee-banner p {
+      font-size: 1.2em;
+      opacity: 0.95;
+    }
+    
+    /* Enhanced Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .gallery-item,
+    .testimonial-card,
+    .trust-badge {
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .logo-text h1 {
+        font-size: 1.5em;
+      }
+      
+      .hero h2 {
+        font-size: 2em;
+      }
+      
+      .hero p {
+        font-size: 1.2em;
+      }
+      
+      section h2 {
+        font-size: 2em;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo-section">
+        <img src="images/logos/hardhat-logo.png" alt="Hardhat Handyman Logo">
+        <div class="logo-text">
+          <h1>Hardhat Handyman</h1>
+          <p>Reliable. Local. Done Right.</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#gallery">Gallery</a>
+        <a href="#meet-rocky">Meet Rocky</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Your Trusted Local Handyman</h2>
+    <p>From Dirty Jobs to Tricky Projects - We Do It All</p>
+    <a href="#contact" class="cta-button">Request Free Estimate</a>
+  </section>
+
+  <!-- Trust Badges Section -->
+  <div class="trust-section">
+    <div class="trust-badges">
+      <div class="trust-badge">
+        <div class="trust-badge-icon">✓</div>
+        <div class="trust-badge-text">Licensed & Insured</div>
+        <div class="trust-badge-subtext">Fully Protected</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">★</div>
+        <div class="trust-badge-text">15+ Years Experience</div>
+        <div class="trust-badge-subtext">Proven Expertise</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">💯</div>
+        <div class="trust-badge-text">100% Satisfaction</div>
+        <div class="trust-badge-subtext">Guaranteed Work</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">⚡</div>
+        <div class="trust-badge-text">Fast Response</div>
+        <div class="trust-badge-subtext">Same Day Available</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">🏆</div>
+        <div class="trust-badge-text">Local & Trusted</div>
+        <div class="trust-badge-subtext">Community Focused</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Satisfaction Rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Emergency Service</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2>Our Work</h2>
+    <p class="section-subtitle">Before & After • Dirty Jobs • Tricky Jobs • Craftsmanship</p>
+    
+    <h3>🏗️ Tricky Jobs - Complex Projects Done Right</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/gallery/tricky-jobs/01-cathedral-ceiling-wide.jpg" alt="Cathedral Ceiling Construction">
+        <div class="gallery-caption">Stunning Cathedral Ceiling - Timber Frame Construction</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/tricky-jobs/02-timber-frame-staircase.jpg" alt="Timber Frame with Custom Staircase">
+        <div class="gallery-caption">Custom Timber Frame with Staircase</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/tricky-jobs/03-cathedral-ceiling-angle1.jpg" alt="Cathedral Ceiling Detail">
+        <div class="gallery-caption">Cathedral Ceiling Detail Work</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/tricky-jobs/04-cathedral-ceiling-angle2.jpg" alt="Timber Frame Construction">
+        <div class="gallery-caption">Professional Timber Frame Construction</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/tricky-jobs/05-cathedral-ceiling-angle3.jpg" alt="Cathedral Ceiling Wide View">
+        <div class="gallery-caption">Large Scale Construction Project</div>
+      </div>
+    </div>
+
+    <h3>🧹 Dirty Jobs - We Tackle the Tough Stuff</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/gallery/dirty-jobs/01-bathroom-mold-before.jpg" alt="Severe Water Damage Before">
+        <div class="gallery-caption">Severe Mold & Water Damage - We Fix It</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/dirty-jobs/02-water-damage-floor.jpg" alt="Water Damaged Floor">
+        <div class="gallery-caption">Rotted Floor Repair</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/dirty-jobs/03-bathroom-rotted-floor.jpg" alt="Bathroom Floor Damage">
+        <div class="gallery-caption">Bathroom Water Damage Restoration</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/dirty-jobs/04-damaged-hardwood-restoration.jpg" alt="Hardwood Floor Restoration">
+        <div class="gallery-caption">Severely Damaged Hardwood Restoration</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/dirty-jobs/05-floor-restoration-progress.jpg" alt="Floor Restoration in Progress">
+        <div class="gallery-caption">Professional Floor Restoration</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/dirty-jobs/06-team-floor-restoration.jpg" alt="Team Working on Floor">
+        <div class="gallery-caption">Our Team Tackling Tough Jobs</div>
+      </div>
+    </div>
+
+    <h3>🏠 Roofing & Exterior Work</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/gallery/roofing/01-metal-roof-finished.jpg" alt="Metal Roof Installation">
+        <div class="gallery-caption">Professional Metal Roofing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/roofing/02-metal-roof-detail.jpg" alt="Metal Roof Detail">
+        <div class="gallery-caption">Quality Roofing Craftsmanship</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/roofing/04-metal-panels-residential.jpg" alt="Residential Metal Roofing">
+        <div class="gallery-caption">Residential Roofing Excellence</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/roofing/05-metal-roof-solar.jpg" alt="Metal Roof with Solar">
+        <div class="gallery-caption">Metal Roofing Installation</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/roofing/06-dormer-siding-work.jpg" alt="Dormer and Siding Work">
+        <div class="gallery-caption">Dormer & Siding Installation</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/roofing/10-team-metal-roofing.jpg" alt="Team Installing Metal Roof">
+        <div class="gallery-caption">Our Expert Roofing Team</div>
+      </div>
+    </div>
+
+    <h3>🪵 Flooring Excellence</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/gallery/flooring/01-floor-sanding-action.jpg" alt="Floor Sanding in Action">
+        <div class="gallery-caption">Professional Floor Refinishing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/flooring/03-large-room-flooring.jpg" alt="Large Room Flooring">
+        <div class="gallery-caption">Large Scale Flooring Projects</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/flooring/04-team-installing-floor.jpg" alt="Team Installing Floor">
+        <div class="gallery-caption">Expert Floor Installation</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/flooring/06-finished-laminate-room.jpg" alt="Finished Laminate Floor">
+        <div class="gallery-caption">Beautiful Finished Flooring</div>
+      </div>
+    </div>
+
+    <h3>✨ Craftsmanship & Interior Work</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/gallery/craftsmanship/01-custom-closet-system.jpg" alt="Custom Closet System">
+        <div class="gallery-caption">Custom Closet Organization</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/craftsmanship/03-finished-loft-skylights.jpg" alt="Finished Loft with Skylights">
+        <div class="gallery-caption">Beautiful Finished Loft Space</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/craftsmanship/04-interior-painting-ceiling.jpg" alt="Interior Painting">
+        <div class="gallery-caption">Professional Interior Painting</div>
+      </div>
+    </div>
+
+    <h3>🔨 Construction & Framing</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/gallery/construction/01-wall-framing-insulation.jpg" alt="Wall Framing">
+        <div class="gallery-caption">Professional Framing Work</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/construction/03-shed-construction.jpg" alt="Shed Construction">
+        <div class="gallery-caption">Shed & Outbuilding Construction</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/construction/05-vaulted-ceiling-progress.jpg" alt="Vaulted Ceiling">
+        <div class="gallery-caption">Vaulted Ceiling Construction</div>
+      </div>
+    </div>
+
+    <h3>✅ Before & After Transformations</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/gallery/before-after/01-damaged-door-before.jpg" alt="Damaged Door Before">
+        <div class="gallery-caption">Before - Damaged & Worn</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/before-after/02-finished-deck-after.jpg" alt="Beautiful Finished Deck">
+        <div class="gallery-caption">After - Beautiful Finished Deck</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/before-after/03-deck-clients-happy.jpg" alt="Happy Clients with Finished Deck">
+        <div class="gallery-caption">Happy Clients - Job Well Done!</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/before-after/04-hot-tub-enclosure.jpg" alt="Hot Tub Enclosure">
+        <div class="gallery-caption">Custom Hot Tub Enclosure</div>
+      </div>
+    </div>
+
+    <h3>👷 Our Team in Action</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/gallery/team/01-team-truck-logo.jpg" alt="Hardhat Handyman Team Truck">
+        <div class="gallery-caption">Our Professional Team</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/team/02-foundation-team-thumbsup.jpg" alt="Team Foundation Work">
+        <div class="gallery-caption">Foundation & Drainage Experts</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery/team/04-workshop-team.jpg" alt="Workshop Team">
+        <div class="gallery-caption">Our Workshop & Team</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet Rocky Section -->
+  <section id="meet-rocky">
+    <h2>Meet Rocky</h2>
+    <p class="section-subtitle">Family. Community. Heart.</p>
+    
+    <div class="meet-rocky">
+      <p style="text-align: center; font-size: 1.2em; margin-bottom: 20px;">
+        Rocky isn't just a handyman - he's a dedicated family man, community member, and craftsman who takes pride in every job. 
+        When you hire Hardhat Handyman, you're getting someone who treats your home like his own.
+      </p>
+      
+      <div class="rocky-content">
+        <div class="rocky-photo">
+          <img src="images/meet-rocky/01-family-gathering-fireplace.jpg" alt="Rocky with Family">
+        </div>
+        <div class="rocky-photo">
+          <img src="images/meet-rocky/07-workshop-with-son.jpg" alt="Rocky Teaching His Son">
+        </div>
+        <div class="rocky-photo">
+          <img src="images/meet-rocky/04-dad-kids-restaurant.jpg" alt="Rocky with Kids">
+        </div>
+        <div class="rocky-photo">
+          <img src="images/meet-rocky/11-hospital-community.jpg" alt="Rocky in the Community">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <div class="testimonials">
+    <h2 style="color: #1e3a8a; margin-bottom: 15px;">What Our Clients Say</h2>
+    <p class="section-subtitle">Real Reviews from Real Customers</p>
+    
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Rocky and his team did an amazing job on our deck! They were professional, on time, and the quality of work exceeded our expectations. We've already recommended them to our neighbors."
+        </p>
+        <div class="testimonial-author">Sarah M.</div>
+        <div class="testimonial-location">Local Homeowner</div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          "We had severe water damage in our bathroom and Rocky came out the same day. He was honest about the work needed and his team fixed everything perfectly. True professionals!"
+        </p>
+        <div class="testimonial-author">Mike & Jennifer T.</div>
+        <div class="testimonial-location">Local Homeowner</div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          "The cathedral ceiling project was complex but Rocky's craftsmanship is incredible. He's not just a handyman - he's a true craftsman. Worth every penny!"
+        </p>
+        <div class="testimonial-author">David L.</div>
+        <div class="testimonial-location">Local Homeowner</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guarantee Banner -->
+  <section>
+    <div class="guarantee-banner">
+      <h3>🛡️ 100% Satisfaction Guarantee</h3>
+      <p>We stand behind our work. If you're not completely satisfied, we'll make it right - no questions asked.</p>
+      <p style="margin-top: 15px; font-weight: 600;">FREE Estimates • Licensed & Insured • Same Day Service Available</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Request Your Free Estimate</h2>
+    <p class="section-subtitle">Let's discuss your project - no obligation, just honest advice</p>
+    
+    <div class="contact-form">
+      <form method="POST" action="/api/lead" id="contactForm">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Tell Us About Your Project *</label>
+          <textarea id="message" name="message" required placeholder="What do you need done? Any specific details?"></textarea>
+        </div>
+        
+        <button type="submit" class="submit-button">Get Free Estimate</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p style="font-size: 1.2em; margin-bottom: 10px;"><strong>Hardhat Handyman</strong></p>
+      <p>Reliable. Local. Done Right.</p>
+      <p style="margin-top: 20px;">📞 Call for Free Estimate | 📧 Email Us Anytime</p>
+      
+      <div class="powered-by">
+        <span>Powered by</span>
+        <a href="https://www.metanoiaunlimited.com" target="_blank" rel="noopener">
+          <img src="images/logos/leviathan-logo.png" alt="Leviathan S.I.">
+        </a>
+      </div>
+      
+      <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9em;">
+        © 2024 Hardhat Handyman. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Form Submission Handler with AI Lead Generation -->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      
+      // Google Ads Conversion
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+          'value': 1.0,
+          'currency': 'USD'
+        });
+      }
+      
+      // Yelp Conversion
+      if (typeof yelp_conversion !== 'undefined') {
+        yelp_conversion();
+      }
+      
+      try {
+        const response = await fetch('/api/lead', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+        
+        if (response.ok) {
+          alert('Thank you! We\'ll contact you shortly with your free estimate.');
+          this.reset();
+        } else {
+          alert('Something went wrong. Please call us directly or try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Please call us directly for the fastest response!');
+      }
+    });
+  </script>
+
+</body>
+</html>

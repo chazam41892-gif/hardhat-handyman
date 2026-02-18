@@ -1,0 +1,15 @@
+# Cache images for 1 year
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache logo and favicon
+/favicon.png
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML - short cache for updates
+/*.html
+  Cache-Control: public, max-age=3600
+
+# Root index
+/
+  Cache-Control: public, max-age=3600
