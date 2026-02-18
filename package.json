@@ -1,0 +1,27 @@
+{
+    "name": "hardhat-handyman",
+    "version": "1.0.0",
+    "description": "Professional handyman services website with Cloudflare integration",
+    "scripts": {
+        "dev": "wrangler pages dev . --port 8788",
+        "deploy": "wrangler pages deploy . --project-name=hardhat-handyman",
+        "tunnel": "cloudflared tunnel --config cloudflare-tunnel.yml run",
+        "preview": "wrangler pages dev . --live-reload",
+        "build": "echo 'No build step required - static site'",
+        "test": "echo 'No tests configured yet'"
+    },
+    "keywords": [
+        "handyman",
+        "construction",
+        "cloudflare",
+        "pages"
+    ],
+    "author": "Hardhat Handyman",
+    "license": "ISC",
+    "devDependencies": {
+        "wrangler": "^3.0.0"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}

@@ -1,0 +1,40 @@
+# Cloudflare Wrangler Configuration for Hardhat Handyman
+
+name = "hardhat-handyman"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "."
+
+# Enable Cloudflare Pages Functions
+[[pages_plugin]]
+binding = "IMAGES"
+
+# Image optimization and transformation
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+# Routes for API endpoints
+[[routes]]
+pattern = "/api/*"
+zone_name = "hardhat-handyman.com"
+
+# Image handling rules
+[[rules]]
+type = "Transform"
+enabled = true
+
+# R2 Storage for images (optional - for dynamic uploads)
+# [[r2_buckets]]
+# binding = "IMAGES"
+# bucket_name = "hardhat-handyman-images"
+
+# Environment variables (set these in Cloudflare Dashboard)
+# LEVIATHAN_API_KEY - for AI lead processing
+# TWILIO_ACCOUNT_SID - for SMS notifications
+# TWILIO_AUTH_TOKEN - for SMS notifications
+# SENDGRID_API_KEY - for email notifications
+# OWNER_PHONE - Rocky's phone number for urgent leads
+# OWNER_EMAIL - Rocky's email address
+
+# Cron triggers for automated tasks (optional)
+# [triggers]
+# crons = ["0 9 * * *"] # Daily at 9 AM for lead follow-ups

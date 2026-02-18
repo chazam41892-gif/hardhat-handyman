@@ -23,3 +23,20 @@ node_modules/
 
 # Archive files
 *.zip
+
+# Cloudflare
+.dev.vars
+.wrangler/
+wrangler.toml.bak
+worker/
+.cloudflared/
+*.pem
+*.key
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Cloudflare credentials
+*credentials.json

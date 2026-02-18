@@ -1,0 +1,34 @@
+# Cloudflare Tunnel Configuration
+# For secure local development and testing
+
+tunnel: hardhat-handyman-dev
+credentials-file: /path/to/.cloudflared/credentials.json
+
+ingress:
+  # Route all traffic to local development server
+  - hostname: dev.hardhat-handyman.com
+    service: http://localhost:8788
+  
+  # API endpoints
+  - hostname: dev.hardhat-handyman.com
+    path: /api/*
+    service: http://localhost:8788
+  
+  # Image optimization service
+  - hostname: dev.hardhat-handyman.com
+    path: /images/*
+    service: http://localhost:8788
+  
+  # Catch-all rule
+  - service: http_status:404
+
+# Optional: Automatic HTTPS
+originRequest:
+  noTLSVerify: true
+  
+# Optional: WebSocket support
+  connectTimeout: 30s
+  
+# Optional: Access control
+warp-routing:
+  enabled: true
