@@ -143,7 +143,7 @@ If you want better performance and easier domain setup:
    - Add `hardhat-handyman.com`
    - Follow the simple DNS instructions
 
-### Connecting AI to Cloudflare:
+### Connecting AI to Cloudflare
 
 Once on Cloudflare Pages, you can add AI features:
 

@@ -103,7 +103,7 @@ Cloudflare Pages is faster than GitHub Pages and has better performance worldwid
    - Enter: `hardhat-handyman.com`
    - Follow the DNS instructions (Cloudflare will guide you)
 
-### 🤖 Connect AI to Cloudflare:
+### 🤖 Connect AI to Cloudflare
 
 To connect AI assistance (like me) to your Cloudflare deployment:
 
