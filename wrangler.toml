@@ -1,7 +1,9 @@
 name = "hardhat-handyman"
 type = "webpack"
-compatibility_date = "2024-01-01"
+compatibility_date = "2026-02-01"
 
+# Site configuration - bucket points to root since this is a simple static site
+# For projects with build tools, change this to your build output directory (e.g., "./dist")
 [site]
 bucket = "./"
 

@@ -51,9 +51,9 @@ if (contactForm) {
             formMessage.textContent = 'Thank you! We\'ll get back to you within 24 hours.';
             contactForm.reset();
             
-            // Hide message after 5 seconds
+            // Auto-hide message after 5 seconds
             setTimeout(() => {
-                formMessage.style.display = 'none';
+                formMessage.className = 'form-message';
             }, 5000);
             
         } catch (error) {

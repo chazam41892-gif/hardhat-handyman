@@ -5,15 +5,33 @@
  * Deploy this separately as a Cloudflare Worker and update your form to POST to this endpoint
  */
 
-// CORS headers for cross-origin requests
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-};
+// Helper function to get allowed origins
+function getAllowedOrigin(request) {
+  const origin = request.headers.get('Origin');
+  // Add your production domains here
+  const allowedOrigins = [
+    'https://hardhat-handyman.pages.dev',
+    'http://localhost:8000',
+    'http://localhost:3000',
+  ];
+  
+  if (allowedOrigins.includes(origin)) {
+    return origin;
+  }
+  return allowedOrigins[0]; // Default to production
+}
 
 export default {
   async fetch(request, env) {
+    const allowedOrigin = getAllowedOrigin(request);
+    
+    // CORS headers with specific origin
+    const corsHeaders = {
+      'Access-Control-Allow-Origin': allowedOrigin,
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    };
+    
     // Handle CORS preflight requests
     if (request.method === 'OPTIONS') {
       return new Response(null, {
@@ -121,7 +139,7 @@ export default {
 
       // AI-powered lead scoring (optional)
       // Analyze the message content to prioritize leads
-      let leadScore = calculateLeadScore(lead);
+      const leadScore = calculateLeadScore(lead);
       
       // Return success response
       return new Response(JSON.stringify({
