@@ -35,29 +35,32 @@ if (contactForm) {
         if (name.length < 2) {
             isValid = false;
             errorMessage = 'Please enter a valid name.';
+            showMessage(errorMessage, 'error');
+            return;
         }
         
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
+        // Email validation - rely on browser's built-in validation
+        const emailInput = document.getElementById('email');
+        if (!emailInput.checkValidity()) {
             isValid = false;
             errorMessage = 'Please enter a valid email address.';
+            showMessage(errorMessage, 'error');
+            return;
         }
         
-        // Phone validation
-        const phoneRegex = /^[\d\s\-\+\(\)]+$/;
-        if (!phoneRegex.test(phone) || phone.length < 10) {
+        // Phone validation - check actual digit count
+        const phoneDigits = phone.replace(/\D/g, '');
+        if (phoneDigits.length < 10) {
             isValid = false;
-            errorMessage = 'Please enter a valid phone number.';
+            errorMessage = 'Please enter a valid phone number with at least 10 digits.';
+            showMessage(errorMessage, 'error');
+            return;
         }
         
         // Message validation
         if (message.length < 10) {
             isValid = false;
             errorMessage = 'Please provide more details about your project (at least 10 characters).';
-        }
-        
-        if (!isValid) {
             showMessage(errorMessage, 'error');
             return;
         }
