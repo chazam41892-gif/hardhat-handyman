@@ -70,7 +70,7 @@ async function processImage(buffer, mimeType) {
 }
 
 // Handle CORS preflight
-export async function onRequestOptions(context) {
+export async function onRequestOptions() {
     return new Response(null, {
         headers: {
             'Access-Control-Allow-Origin': '*',
