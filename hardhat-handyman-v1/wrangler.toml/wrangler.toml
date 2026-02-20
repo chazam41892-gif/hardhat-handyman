@@ -1,0 +1,41 @@
+name = "hardhat-handyman"
+compatibility_date = "2026-02-19"
+pages_build_output_dir = "."
+
+# ──────────────────────────────────────────────
+# Environment Variables (non-secret)
+# ──────────────────────────────────────────────
+[vars]
+SITE_NAME = "Hardhat Handyman"
+SITE_URL  = "https://hardhat-handyman.com"
+
+# ──────────────────────────────────────────────
+# Secrets – set via CLI, never store values here
+#   npx wrangler pages secret put SECRET_NAME
+# ──────────────────────────────────────────────
+# SENDGRID_API_KEY      – transactional email (customer auto-response)
+# TWILIO_ACCOUNT_SID    – SMS alerts for high-priority leads
+# TWILIO_AUTH_TOKEN     – Twilio authentication
+# TWILIO_FROM_NUMBER    – Your Twilio phone number
+# OWNER_PHONE           – Rocky's SMS notification number
+# OWNER_EMAIL           – Rocky's email for urgent lead alerts
+# LEVIATHAN_WEBHOOK_URL – Leviathan AI inbound webhook endpoint
+# LEVIATHAN_API_KEY     – Leviathan AI authentication key
+
+# ──────────────────────────────────────────────
+# Production environment overrides
+# ──────────────────────────────────────────────
+[env.production]
+name = "hardhat-handyman"
+
+[env.production.vars]
+SITE_URL = "https://hardhat-handyman.com"
+
+# ──────────────────────────────────────────────
+# Preview / staging environment
+# ──────────────────────────────────────────────
+[env.preview]
+name = "hardhat-handyman-preview"
+
+[env.preview.vars]
+SITE_URL = "https://preview.hardhat-handyman.com"

@@ -1,0 +1,36 @@
+{
+  "name": "hardhat-handyman",
+  "compatibility_date": "2026-02-19",
+  "pages_build_output_dir": ".",
+
+  // Non-secret environment variables
+  "vars": {
+    "SITE_NAME": "Hardhat Handyman",
+    "SITE_URL": "https://hardhat-handyman.com"
+  },
+
+  // Secrets — set via CLI (never store values here):
+  //   npx wrangler pages secret put SENDGRID_API_KEY
+  //   npx wrangler pages secret put TWILIO_ACCOUNT_SID
+  //   npx wrangler pages secret put TWILIO_AUTH_TOKEN
+  //   npx wrangler pages secret put TWILIO_FROM_NUMBER
+  //   npx wrangler pages secret put OWNER_PHONE
+  //   npx wrangler pages secret put OWNER_EMAIL
+  //   npx wrangler pages secret put LEVIATHAN_WEBHOOK_URL
+  //   npx wrangler pages secret put LEVIATHAN_API_KEY
+
+  "env": {
+    "production": {
+      "name": "hardhat-handyman",
+      "vars": {
+        "SITE_URL": "https://hardhat-handyman.com"
+      }
+    },
+    "preview": {
+      "name": "hardhat-handyman-preview",
+      "vars": {
+        "SITE_URL": "https://preview.hardhat-handyman.com"
+      }
+    }
+  }
+}
