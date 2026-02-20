@@ -90,6 +90,7 @@ hardhat-handyman/
 └── Docs/
     ├── LEVIATHAN-INTEGRATION.md  # AI architecture
     ├── GITHUB-DEPLOY.md          # Deployment guide
+    ├── GITHUB-SECRETS-SETUP.md   # 🔐 GitHub Actions setup
     └── DEPLOY-FIX.md             # Troubleshooting
 ```
 
@@ -204,6 +205,8 @@ git push origin main
 ```
 Workflow: `.github/workflows/deploy.yml`
 
+**⚙️ First-time setup:** [GITHUB-SECRETS-SETUP.md](GITHUB-SECRETS-SETUP.md) - Complete guide to configure GitHub secrets
+
 ### Option 3: Manual
 ```powershell
 git add .
@@ -312,6 +315,7 @@ npx wrangler login
 **Documentation:**
 - [LEVIATHAN-INTEGRATION.md](LEVIATHAN-INTEGRATION.md) - Complete AI architecture
 - [GITHUB-DEPLOY.md](GITHUB-DEPLOY.md) - Full deployment guide
+- [GITHUB-SECRETS-SETUP.md](GITHUB-SECRETS-SETUP.md) - 🔐 GitHub Actions secrets setup
 - [DEPLOYMENT-SUCCESS.md](DEPLOYMENT-SUCCESS.md) - Setup checklist
 - [DEPLOY-FIX.md](DEPLOY-FIX.md) - Troubleshooting guide
 
