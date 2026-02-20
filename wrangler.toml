@@ -4,10 +4,14 @@ name = "hardhat-handyman"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "."
 
-# KV Namespace for lead storage
+# KV Namespaces
 [[kv_namespaces]]
 binding = "LEADS_KV"
-id = "48b4432f9982474c85522112c5fe3c1a"
+id = "766dd0ae58c04b52a61c8296b6adbead"
+
+[[kv_namespaces]]
+binding = "USERS_NOTIFICATION_CONFIG"
+id = "b7dcdb7865c543e4937f824d2dcf2a77"
 
 [vars]
 ENVIRONMENT = "production"
